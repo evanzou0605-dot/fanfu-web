@@ -15,7 +15,7 @@ services:
         value: 3000
       - key: DATA_DIR
         value: /var/data/fanfu
-    disks:
-      - name: fanfu-data
-        mountPath: /var/data
-        sizeGB: 5
+    disk:
+      name: fanfu-data
+      mountPath: /var/data
+      sizeGB: 5
