@@ -1,0 +1,692 @@
+{
+  "lastSyncAt": "2026-04-21T01:02:15.084Z",
+  "lastSyncSummary": "扫描 0 条官网列表，新增 0 条，更新 0 条。 失败 6 条。",
+  "lastEnrichAt": "2026-05-02T00:23:32.086Z",
+  "lastEnrichSummary": "已补全 金东寒 的百科信息。",
+  "lastSyncErrors": [
+    {
+      "section": "中管干部审查调查",
+      "message": "No article cards found on first page. Preview: "
+    },
+    {
+      "section": "中管干部党纪政务处分",
+      "message": "No article cards found on first page. Preview: "
+    },
+    {
+      "section": "中央一级党和国家机关、国企和金融单位干部审查调查",
+      "message": "No article cards found on first page. Preview: "
+    },
+    {
+      "section": "中央一级党和国家机关、国企和金融单位干部党纪政务处分",
+      "message": "No article cards found on first page. Preview: "
+    },
+    {
+      "section": "省管干部审查调查",
+      "message": "No article cards found on first page. Preview: "
+    },
+    {
+      "section": "省管干部党纪政务处分",
+      "message": "No article cards found on first page. Preview: "
+    }
+  ],
+  "settings": {
+    "autoSyncEnabled": false,
+    "autoSyncIntervalMinutes": 180,
+    "autoEnrichEnabled": true,
+    "maxPagesPerSection": 12
+  },
+  "recentRuns": [
+    {
+      "startedAt": "2026-04-21T01:01:11.882Z",
+      "finishedAt": "2026-04-21T01:02:15.085Z",
+      "reason": "manual",
+      "sync": {
+        "scanned": 0,
+        "created": 0,
+        "updated": 0,
+        "errors": 6
+      },
+      "enrich": {
+        "changed": 0,
+        "processed": 3
+      }
+    },
+    {
+      "startedAt": "2026-04-21T00:49:08.412Z",
+      "finishedAt": "2026-04-21T00:49:50.538Z",
+      "reason": "manual",
+      "sync": {
+        "scanned": 0,
+        "created": 0,
+        "updated": 0,
+        "errors": 6
+      },
+      "enrich": {
+        "changed": 0,
+        "processed": 2
+      }
+    },
+    {
+      "startedAt": "2026-04-21T00:48:09.193Z",
+      "finishedAt": "2026-04-21T00:48:51.367Z",
+      "reason": "manual",
+      "sync": {
+        "scanned": 0,
+        "created": 0,
+        "updated": 0,
+        "errors": 6
+      },
+      "enrich": {
+        "changed": 0,
+        "processed": 2
+      }
+    },
+    {
+      "startedAt": "2026-04-21T00:46:41.847Z",
+      "finishedAt": "2026-04-21T00:47:24.520Z",
+      "reason": "manual",
+      "sync": {
+        "scanned": 0,
+        "created": 0,
+        "updated": 0,
+        "errors": 6
+      },
+      "enrich": {
+        "changed": 0,
+        "processed": 2
+      }
+    },
+    {
+      "startedAt": "2026-04-21T00:42:57.740Z",
+      "finishedAt": "2026-04-21T00:43:39.976Z",
+      "reason": "manual",
+      "sync": {
+        "scanned": 0,
+        "created": 0,
+        "updated": 0,
+        "errors": 0
+      },
+      "enrich": {
+        "officials": [
+          {
+            "id": "demo-001",
+            "name": "示例官员甲",
+            "birth": "1968-03",
+            "region": "广东省",
+            "level": "省部级",
+            "lastPosition": "广东省政协原党组成员、副主席",
+            "previousPositions": [
+              "某市委书记",
+              "某省政府秘书长"
+            ],
+            "investigationDate": "2026-04-12",
+            "status": "审查调查",
+            "summary": "中央纪委国家监委网站发布审查调查通报。",
+            "detail": "这里用于演示详情信息。正式使用时可通过自动同步与人工维护补全。",
+            "timeline": [
+              {
+                "stage": "审查调查",
+                "date": "2026-04-12",
+                "url": "https://www.ccdi.gov.cn/example-1",
+                "summary": "涉嫌严重违纪违法，接受中央纪委国家监委纪律审查和监察调查。"
+              }
+            ],
+            "sources": [
+              {
+                "type": "official",
+                "label": "中纪委官网",
+                "url": "https://www.ccdi.gov.cn/example-1"
+              },
+              {
+                "type": "encyclopedia",
+                "label": "维基百科",
+                "url": "https://zh.wikipedia.org/"
+              }
+            ],
+            "aliases": [],
+            "editable": true,
+            "createdAt": "2026-04-19T10:26:42.402Z",
+            "updatedAt": "2026-04-19T10:26:42.406Z"
+          },
+          {
+            "id": "demo-002",
+            "name": "示例官员乙",
+            "birth": "1971-11",
+            "region": "中央部委/央企",
+            "level": "厅局级",
+            "lastPosition": "某中央企业原总经理助理",
+            "previousPositions": [
+              "某集团办公室主任"
+            ],
+            "investigationDate": "2025-11-20",
+            "status": "党纪政务处分",
+            "summary": "已被开除党籍并移送司法。",
+            "detail": "这里用于演示后续处分和案件进度的合并展示。",
+            "timeline": [
+              {
+                "stage": "审查调查",
+                "date": "2025-08-15",
+                "url": "https://www.ccdi.gov.cn/example-2-a",
+                "summary": "接受纪律审查和监察调查。"
+              },
+              {
+                "stage": "党纪政务处分",
+                "date": "2025-11-20",
+                "url": "https://www.ccdi.gov.cn/example-2-b",
+                "summary": "被开除党籍，按规定取消其享受的待遇。"
+              }
+            ],
+            "sources": [
+              {
+                "type": "official",
+                "label": "中纪委官网",
+                "url": "https://www.ccdi.gov.cn/example-2-a"
+              }
+            ],
+            "aliases": [],
+            "editable": true,
+            "createdAt": "2026-04-19T10:26:42.406Z",
+            "updatedAt": "2026-04-19T10:26:42.406Z"
+          }
+        ],
+        "changed": 0,
+        "processed": 2
+      }
+    },
+    {
+      "startedAt": "2026-04-21T00:39:49.363Z",
+      "finishedAt": "2026-04-21T00:40:32.061Z",
+      "reason": "manual",
+      "sync": {
+        "scanned": 0,
+        "created": 0,
+        "updated": 0,
+        "errors": 0
+      },
+      "enrich": {
+        "officials": [
+          {
+            "id": "demo-001",
+            "name": "示例官员甲",
+            "birth": "1968-03",
+            "region": "广东省",
+            "level": "省部级",
+            "lastPosition": "广东省政协原党组成员、副主席",
+            "previousPositions": [
+              "某市委书记",
+              "某省政府秘书长"
+            ],
+            "investigationDate": "2026-04-12",
+            "status": "审查调查",
+            "summary": "中央纪委国家监委网站发布审查调查通报。",
+            "detail": "这里用于演示详情信息。正式使用时可通过自动同步与人工维护补全。",
+            "timeline": [
+              {
+                "stage": "审查调查",
+                "date": "2026-04-12",
+                "url": "https://www.ccdi.gov.cn/example-1",
+                "summary": "涉嫌严重违纪违法，接受中央纪委国家监委纪律审查和监察调查。"
+              }
+            ],
+            "sources": [
+              {
+                "type": "official",
+                "label": "中纪委官网",
+                "url": "https://www.ccdi.gov.cn/example-1"
+              },
+              {
+                "type": "encyclopedia",
+                "label": "维基百科",
+                "url": "https://zh.wikipedia.org/"
+              }
+            ],
+            "aliases": [],
+            "editable": true,
+            "createdAt": "2026-04-19T10:26:42.402Z",
+            "updatedAt": "2026-04-19T10:26:42.406Z"
+          },
+          {
+            "id": "demo-002",
+            "name": "示例官员乙",
+            "birth": "1971-11",
+            "region": "中央部委/央企",
+            "level": "厅局级",
+            "lastPosition": "某中央企业原总经理助理",
+            "previousPositions": [
+              "某集团办公室主任"
+            ],
+            "investigationDate": "2025-11-20",
+            "status": "党纪政务处分",
+            "summary": "已被开除党籍并移送司法。",
+            "detail": "这里用于演示后续处分和案件进度的合并展示。",
+            "timeline": [
+              {
+                "stage": "审查调查",
+                "date": "2025-08-15",
+                "url": "https://www.ccdi.gov.cn/example-2-a",
+                "summary": "接受纪律审查和监察调查。"
+              },
+              {
+                "stage": "党纪政务处分",
+                "date": "2025-11-20",
+                "url": "https://www.ccdi.gov.cn/example-2-b",
+                "summary": "被开除党籍，按规定取消其享受的待遇。"
+              }
+            ],
+            "sources": [
+              {
+                "type": "official",
+                "label": "中纪委官网",
+                "url": "https://www.ccdi.gov.cn/example-2-a"
+              }
+            ],
+            "aliases": [],
+            "editable": true,
+            "createdAt": "2026-04-19T10:26:42.406Z",
+            "updatedAt": "2026-04-19T10:26:42.406Z"
+          }
+        ],
+        "changed": 0,
+        "processed": 2
+      }
+    }
+  ],
+  "note": "演示数据仅用于 UI 验证。",
+  "enrichQueue": {
+    "running": false,
+    "startedAt": "2026-04-22T11:35:11.592Z",
+    "processed": 43,
+    "changed": 0,
+    "failed": 0,
+    "total": 3456,
+    "remaining": 3413,
+    "stopRequested": true,
+    "recentErrors": []
+  },
+  "regionEnrichQueues": {
+    "天津市": {
+      "running": false,
+      "startedAt": "2026-04-22T12:25:58.821Z",
+      "processed": 27,
+      "changed": 12,
+      "failed": 0,
+      "total": 27,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-22T12:32:23.315Z"
+    },
+    "中央部委/央企": {
+      "running": false,
+      "startedAt": "2026-04-25T14:33:17.853Z",
+      "processed": 678,
+      "changed": 660,
+      "failed": 0,
+      "total": 678,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-25T14:55:16.044Z"
+    },
+    "北京市": {
+      "running": false,
+      "startedAt": "2026-04-22T15:31:59.769Z",
+      "processed": 62,
+      "changed": 53,
+      "failed": 0,
+      "total": 62,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-22T15:35:20.051Z"
+    },
+    "河北省": {
+      "running": false,
+      "startedAt": "2026-04-22T15:36:27.007Z",
+      "processed": 45,
+      "changed": 40,
+      "failed": 0,
+      "total": 45,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-22T15:39:32.710Z"
+    },
+    "山西省": {
+      "running": false,
+      "startedAt": "2026-04-22T15:40:36.870Z",
+      "processed": 87,
+      "changed": 68,
+      "failed": 0,
+      "total": 87,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-22T15:46:56.978Z"
+    },
+    "内蒙古自治区": {
+      "running": false,
+      "startedAt": "2026-04-22T15:48:49.950Z",
+      "processed": 51,
+      "changed": 26,
+      "failed": 0,
+      "total": 51,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-22T15:57:36.255Z"
+    },
+    "辽宁省": {
+      "running": false,
+      "startedAt": "2026-04-22T15:58:38.792Z",
+      "processed": 104,
+      "changed": 66,
+      "failed": 0,
+      "total": 104,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-22T16:16:05.714Z"
+    },
+    "吉林省": {
+      "running": false,
+      "startedAt": "2026-04-22T16:19:16.065Z",
+      "processed": 78,
+      "changed": 46,
+      "failed": 0,
+      "total": 78,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-22T16:35:51.005Z"
+    },
+    "黑龙江省": {
+      "running": false,
+      "startedAt": "2026-04-30T07:11:25.978Z",
+      "processed": 7,
+      "changed": 6,
+      "failed": 0,
+      "total": 105,
+      "remaining": 98,
+      "stopRequested": true,
+      "recentErrors": [],
+      "finishedAt": "2026-04-30T07:13:55.232Z"
+    },
+    "上海市": {
+      "running": false,
+      "startedAt": "2026-04-23T06:03:43.355Z",
+      "processed": 32,
+      "changed": 23,
+      "failed": 0,
+      "total": 32,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-23T06:09:04.222Z"
+    },
+    "江苏省": {
+      "running": false,
+      "startedAt": "2026-04-23T06:22:25.057Z",
+      "processed": 108,
+      "changed": 79,
+      "failed": 0,
+      "total": 108,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-23T06:35:15.915Z"
+    },
+    "浙江省": {
+      "running": false,
+      "startedAt": "2026-04-23T06:44:53.677Z",
+      "processed": 41,
+      "changed": 33,
+      "failed": 0,
+      "total": 41,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-23T06:48:09.136Z"
+    },
+    "安徽省": {
+      "running": false,
+      "startedAt": "2026-04-23T07:00:01.313Z",
+      "processed": 108,
+      "changed": 77,
+      "failed": 0,
+      "total": 108,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-23T07:13:41.224Z"
+    },
+    "福建省": {
+      "running": false,
+      "startedAt": "2026-04-23T07:14:10.165Z",
+      "processed": 21,
+      "changed": 14,
+      "failed": 0,
+      "total": 21,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-23T07:17:12.428Z"
+    },
+    "江西省": {
+      "running": false,
+      "startedAt": "2026-04-23T07:26:27.119Z",
+      "processed": 99,
+      "changed": 73,
+      "failed": 0,
+      "total": 99,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-23T07:39:31.182Z"
+    },
+    "山东省": {
+      "running": false,
+      "startedAt": "2026-04-23T07:40:11.275Z",
+      "processed": 82,
+      "changed": 48,
+      "failed": 0,
+      "total": 82,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-23T07:52:49.927Z"
+    },
+    "河南省": {
+      "running": false,
+      "startedAt": "2026-04-23T07:58:13.969Z",
+      "processed": 125,
+      "changed": 85,
+      "failed": 0,
+      "total": 125,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-23T08:16:22.403Z"
+    },
+    "湖北省": {
+      "running": false,
+      "startedAt": "2026-04-23T08:31:46.276Z",
+      "processed": 62,
+      "changed": 43,
+      "failed": 0,
+      "total": 62,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-23T08:41:18.768Z"
+    },
+    "湖南省": {
+      "running": false,
+      "startedAt": "2026-04-23T08:49:37.200Z",
+      "processed": 127,
+      "changed": 89,
+      "failed": 0,
+      "total": 127,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-23T09:07:10.518Z"
+    },
+    "广东省": {
+      "running": false,
+      "startedAt": "2026-04-23T09:09:36.610Z",
+      "processed": 274,
+      "changed": 218,
+      "failed": 0,
+      "total": 274,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-23T09:39:11.546Z"
+    },
+    "广西壮族自治区": {
+      "running": false,
+      "startedAt": "2026-05-01T23:48:10.006Z",
+      "processed": 115,
+      "changed": 100,
+      "failed": 0,
+      "total": 115,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-05-02T00:16:50.734Z"
+    },
+    "海南省": {
+      "running": false,
+      "startedAt": "2026-04-23T15:10:07.474Z",
+      "processed": 58,
+      "changed": 53,
+      "failed": 0,
+      "total": 58,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-23T15:13:07.159Z"
+    },
+    "重庆市": {
+      "running": false,
+      "startedAt": "2026-04-23T15:16:22.353Z",
+      "processed": 82,
+      "changed": 67,
+      "failed": 0,
+      "total": 82,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-23T15:22:56.905Z"
+    },
+    "四川省": {
+      "running": false,
+      "startedAt": "2026-04-23T15:23:15.655Z",
+      "processed": 129,
+      "changed": 73,
+      "failed": 0,
+      "total": 129,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-23T15:40:36.424Z"
+    },
+    "贵州省": {
+      "running": false,
+      "startedAt": "2026-04-23T15:44:03.260Z",
+      "processed": 182,
+      "changed": 114,
+      "failed": 0,
+      "total": 182,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-23T16:18:03.575Z"
+    },
+    "云南省": {
+      "running": false,
+      "startedAt": "2026-04-23T16:41:07.354Z",
+      "processed": 146,
+      "changed": 133,
+      "failed": 0,
+      "total": 146,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-23T16:51:39.841Z"
+    },
+    "西藏自治区": {
+      "running": false,
+      "startedAt": "2026-04-23T17:07:16.062Z",
+      "processed": 38,
+      "changed": 32,
+      "failed": 0,
+      "total": 38,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-23T17:11:07.654Z"
+    },
+    "陕西省": {
+      "running": false,
+      "startedAt": "2026-04-23T23:48:35.183Z",
+      "processed": 32,
+      "changed": 25,
+      "failed": 0,
+      "total": 32,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-23T23:52:00.206Z"
+    },
+    "甘肃省": {
+      "running": false,
+      "startedAt": "2026-04-24T00:02:58.695Z",
+      "processed": 56,
+      "changed": 50,
+      "failed": 0,
+      "total": 56,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-24T00:05:00.241Z"
+    },
+    "青海省": {
+      "running": false,
+      "startedAt": "2026-04-24T00:05:30.788Z",
+      "processed": 45,
+      "changed": 41,
+      "failed": 0,
+      "total": 45,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-24T00:08:42.557Z"
+    },
+    "宁夏回族自治区": {
+      "running": false,
+      "startedAt": "2026-04-24T00:09:24.133Z",
+      "processed": 35,
+      "changed": 21,
+      "failed": 0,
+      "total": 35,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-24T00:14:32.365Z"
+    },
+    "新疆维吾尔自治区": {
+      "running": false,
+      "startedAt": "2026-04-24T00:14:53.853Z",
+      "processed": 99,
+      "changed": 43,
+      "failed": 0,
+      "total": 99,
+      "remaining": 0,
+      "stopRequested": false,
+      "recentErrors": [],
+      "finishedAt": "2026-04-24T00:41:57.555Z"
+    }
+  }
+}

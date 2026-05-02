@@ -1,0 +1,12 @@
+{
+  "name": "fanfu-web",
+  "version": "0.1.0",
+  "private": true,
+  "description": "中国反腐消息整理与手动维护站点",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "sync": "node scripts/sync.js",
+    "seed": "node scripts/seed-demo.js"
+  }
+}

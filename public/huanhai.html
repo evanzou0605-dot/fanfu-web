@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>宦海六度</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero analytics-hero">
+        <div>
+          <p class="eyebrow">宦海六度</p>
+          <h1>查处规模与省域排名</h1>
+          <p class="hero-copy">
+            按年度观察国家级、省部级、厅局级官员查处规模，并对各省每年的省部级、厅局级查处数量进行排名。
+          </p>
+        </div>
+        <div class="hero-actions">
+          <a class="secondary link-button" href="/">返回首页</a>
+          <a class="ghost link-button" href="/region.html?region=%E4%B8%AD%E5%A4%AE%E9%83%A8%E5%A7%94%2F%E5%A4%AE%E4%BC%81">中央部委</a>
+        </div>
+      </header>
+
+      <section class="status-bar">
+        <div>
+          <strong>数据范围：</strong>
+          <span id="analyticsRange">加载中</span>
+        </div>
+        <div id="analyticsSummary">正在汇总年度统计。</div>
+      </section>
+
+      <section class="analytics-top-stats">
+        <a class="analytics-stat-card analytics-stat-link" href="/committee.html?type=twentieth-committee">
+          <div class="small">落马二十届中央委员</div>
+          <strong id="twentiethCommitteeCount">0 人</strong>
+          <div class="small" id="twentiethCommitteeRatio">0 / 205 · 0%</div>
+        </a>
+        <a class="analytics-stat-card analytics-stat-link" href="/committee.html?type=twentieth-alternate">
+          <div class="small">落马二十届中央候补委员</div>
+          <strong id="twentiethAlternateCount">0 人</strong>
+          <div class="small" id="twentiethAlternateRatio">0 / 171 · 0%</div>
+        </a>
+      </section>
+
+      <section class="analytics-grid">
+        <section class="control-card analytics-card">
+          <div class="control-head">
+            <h2>年度查处规模</h2>
+            <div class="small">国家级 / 省部级 / 厅局级</div>
+          </div>
+          <div class="analytics-legend">
+            <span class="legend-item legend-national">国家级</span>
+            <span class="legend-item legend-provincial">省部级</span>
+            <span class="legend-item legend-bureau">厅局级</span>
+          </div>
+          <div id="yearlyTrend" class="yearly-trend"></div>
+        </section>
+
+        <section class="control-card analytics-card">
+          <div class="control-head">
+            <h2>省份热力地图</h2>
+            <div class="analytics-control-row">
+              <label class="analytics-select">
+                开始年份
+                <select id="heatmapYearStartSelect"></select>
+              </label>
+              <label class="analytics-select">
+                结束年份
+                <select id="heatmapYearEndSelect"></select>
+              </label>
+              <label class="analytics-select">
+                口径
+                <select id="heatmapLevelSelect">
+                  <option value="省部级">省部级</option>
+                  <option value="厅局级">厅局级</option>
+                  <option value="全部">全部</option>
+                </select>
+              </label>
+            </div>
+          </div>
+          <div class="small" id="heatmapSummary">正在计算热力分布。</div>
+          <div id="heatmapMap" class="heatmap-map"></div>
+          <div id="heatmapGrid" class="heatmap-grid heatmap-fallback"></div>
+        </section>
+
+        <section class="control-card analytics-card">
+          <div class="control-head">
+            <h2>省域年度排名</h2>
+            <div class="analytics-control-row">
+              <label class="analytics-select">
+                开始年份
+                <select id="analyticsYearStartSelect"></select>
+              </label>
+              <label class="analytics-select">
+                结束年份
+                <select id="analyticsYearEndSelect"></select>
+              </label>
+            </div>
+          </div>
+          <div class="analytics-rank-grid">
+            <section>
+              <div class="analytics-subhead">
+                <h3>省部级排名</h3>
+                <div class="small" id="provincialRankingMeta"></div>
+              </div>
+              <div id="provincialRanking" class="ranking-chart"></div>
+            </section>
+            <section>
+              <div class="analytics-subhead">
+                <h3>厅局级排名</h3>
+                <div class="small" id="bureauRankingMeta"></div>
+              </div>
+              <div id="bureauRanking" class="ranking-chart"></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="control-card analytics-card">
+          <div class="control-head">
+            <h2>各年同比变化</h2>
+            <div class="small">与上一年相比的增减数量和变化幅度</div>
+          </div>
+          <div id="yoyBoard" class="yoy-board"></div>
+        </section>
+
+        <section class="control-card analytics-card">
+          <div class="control-head">
+            <h2>同病相怜</h2>
+            <div class="small">选择省份与地市，查看曾在该地任职的落马官员</div>
+          </div>
+          <div class="analytics-control-row analytics-control-wide">
+            <label class="analytics-select">
+              选择省份
+              <select id="peerProvinceSelect"></select>
+            </label>
+            <label class="analytics-select">
+              选择地市 / 州 / 直辖市区
+              <select id="peerCitySelect"></select>
+            </label>
+          </div>
+          <div id="peerSummary" class="small">正在加载行政区划。</div>
+          <div id="peerList" class="peer-list"></div>
+        </section>
+
+        <section class="control-card analytics-card">
+          <div class="control-head">
+            <h2>落马年龄分布</h2>
+            <div class="small">不含解放军将领，仅统计已补全出生年月与落马时间的官员</div>
+          </div>
+          <div class="analytics-control-row analytics-control-wide">
+            <label class="analytics-select">
+              起始年龄
+              <select id="ageRangeStartSelect"></select>
+            </label>
+            <label class="analytics-select">
+              结束年龄
+              <select id="ageRangeEndSelect"></select>
+            </label>
+          </div>
+          <div class="age-range-board">
+            <div class="analytics-stat-card">
+              <div class="small">所选年龄区间</div>
+              <strong id="ageRangeLabel">30-80 岁</strong>
+              <div class="small" id="ageRangeSummary">正在计算。</div>
+            </div>
+            <div class="analytics-stat-card">
+              <div class="small">对应官员数量</div>
+              <strong id="ageRangeCount">0 人</strong>
+              <div class="small">符合区间条件的官员数</div>
+            </div>
+            <div class="analytics-stat-card">
+              <div class="small">占全部有效样本比例</div>
+              <strong id="ageRangeRatio">0%</strong>
+              <div class="small" id="ageRangeDenominator">有效样本 0 人</div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </div>
+
+    <dialog id="editorDialog" class="editor-dialog">
+      <form id="editorForm" class="editor-form" method="dialog">
+        <div class="dialog-header">
+          <h2>编辑条目</h2>
+          <button type="button" id="closeDialog" class="ghost">关闭</button>
+        </div>
+
+        <div class="form-grid">
+          <label>唯一 ID<input name="id" required /></label>
+          <label>姓名<input name="name" required /></label>
+          <label>出生年月<input name="birth" placeholder="如 1970-05" /></label>
+          <label>调查时间<input name="investigationDate" placeholder="YYYY-MM-DD" /></label>
+          <label>
+            地区
+            <select name="region" id="regionInput"></select>
+          </label>
+          <label>
+            级别
+            <select name="level" id="levelInput"></select>
+          </label>
+          <label class="span-2">最后职务<input name="lastPosition" /></label>
+          <label class="span-2">曾任职务（用 `|` 分隔）<input name="previousPositions" /></label>
+          <fieldset class="span-2 checkbox-group">
+            <legend>党内职务标注（可多选）</legend>
+            <label><input type="checkbox" name="centralRoles" value="中央政治局委员" />中央政治局委员</label>
+            <label><input type="checkbox" name="centralRoles" value="中央军委委员" />中央军委委员</label>
+            <label><input type="checkbox" name="centralRoles" value="中央书记处书记" />中央书记处书记</label>
+            <label><input type="checkbox" name="centralRoles" value="第十八届中纪委委员" />第十八届中纪委委员</label>
+            <label><input type="checkbox" name="centralRoles" value="第十九届中纪委委员" />第十九届中纪委委员</label>
+            <label><input type="checkbox" name="centralRoles" value="第二十届中纪委委员" />第二十届中纪委委员</label>
+            <label><input type="checkbox" name="centralRoles" value="第十八届中央委员" />第十八届中央委员</label>
+            <label><input type="checkbox" name="centralRoles" value="第十八届中央候补委员" />第十八届中央候补委员</label>
+            <label><input type="checkbox" name="centralRoles" value="第十九届中央委员" />第十九届中央委员</label>
+            <label><input type="checkbox" name="centralRoles" value="第十九届中央候补委员" />第十九届中央候补委员</label>
+            <label><input type="checkbox" name="centralRoles" value="第二十届中央委员" />第二十届中央委员</label>
+            <label><input type="checkbox" name="centralRoles" value="第二十届中央候补委员" />第二十届中央候补委员</label>
+          </fieldset>
+          <label>当前状态<input name="status" /></label>
+          <label>来源说明<input name="sourceLabel" placeholder="如 中纪委官网 / 百度百科" /></label>
+          <label class="span-2">来源链接<input name="sourceUrl" /></label>
+          <label class="span-2">手动照片链接<input name="photoUrl" placeholder="可填图片链接，或直接上传下方图片文件" /></label>
+          <label class="span-2">上传官员照片<input name="photoFile" type="file" accept="image/*" /></label>
+          <label class="span-2">摘要<textarea name="summary" rows="2"></textarea></label>
+          <label class="span-2">详情<textarea name="detail" rows="5"></textarea></label>
+          <label class="span-2">时间线（每行：日期|阶段|摘要|链接）<textarea name="timeline" rows="6"></textarea></label>
+        </div>
+
+        <div class="dialog-actions">
+          <button type="submit" class="primary">保存</button>
+          <button type="button" id="deleteButton" class="danger">删除</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/map/js/china.js"></script>
+    <script src="/huanhai.js"></script>
+  </body>
+</html>

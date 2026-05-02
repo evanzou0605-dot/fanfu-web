@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>中央委员专题名单</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero analytics-hero">
+        <div>
+          <p class="eyebrow">专题名单</p>
+          <h1 id="committeeTitle">加载中</h1>
+          <p class="hero-copy" id="committeeSubtitle">正在整理专题官员名单。</p>
+        </div>
+        <div class="hero-actions">
+          <a class="secondary link-button" href="/huanhai.html">返回宦海六度</a>
+          <a class="ghost link-button" href="/">返回首页</a>
+        </div>
+      </header>
+
+      <section class="status-bar">
+        <div>
+          <strong>排序方式：</strong>
+          <span>按姓名拼音排序</span>
+        </div>
+        <div id="committeeSummary">正在加载。</div>
+      </section>
+
+      <section class="region-detail-shell committee-shell">
+        <main id="committeeBoard" class="region-board"></main>
+      </section>
+    </div>
+
+    <script src="/committee.js"></script>
+  </body>
+</html>

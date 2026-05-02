@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>省份落马官员详情</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero region-hero">
+        <div>
+          <p class="eyebrow">省份详情页</p>
+          <h1 id="regionTitle">地区加载中</h1>
+          <p class="hero-copy" id="regionSubtitle">正在读取该地区的落马官员数据。</p>
+        </div>
+        <div class="hero-actions">
+          <a class="secondary link-button" href="/">返回首页</a>
+          <button id="regionEnrichAllButton" class="secondary">本地区一键百科补全</button>
+          <button id="regionStopEnrichButton" class="ghost">停止本地区补全</button>
+          <button id="regionNewButton" class="primary">新增本地区条目</button>
+        </div>
+      </header>
+
+      <section class="status-bar">
+        <div>
+          <strong>最近同步：</strong>
+          <span id="regionLastSyncAt">未同步</span>
+        </div>
+        <div id="regionSyncSummary">等待加载。</div>
+      </section>
+
+      <section class="control-card region-queue-card">
+        <div class="control-head">
+          <h2>本地区百科补全进度</h2>
+        </div>
+        <div class="queue-panel">
+          <div class="queue-stats">
+            <div class="queue-stat"><strong id="regionQueueProcessed">0</strong><span>已扫描</span></div>
+            <div class="queue-stat"><strong id="regionQueueChanged">0</strong><span>已更新</span></div>
+            <div class="queue-stat"><strong id="regionQueueRemaining">0</strong><span>还剩</span></div>
+            <div class="queue-stat"><strong id="regionQueueFailed">0</strong><span>失败</span></div>
+          </div>
+          <div class="queue-progress">
+            <div id="regionQueueProgressBar" class="queue-progress-bar"></div>
+          </div>
+          <div id="regionQueueStatusText" class="small">当前地区没有正在运行的批量补全任务。</div>
+          <div id="regionQueueErrorList" class="queue-errors small"></div>
+        </div>
+      </section>
+
+      <section id="militaryImportCard" class="control-card region-queue-card" hidden>
+        <div class="control-head">
+          <h2>解放军样本导入</h2>
+        </div>
+        <div class="settings-grid">
+          <label class="span-2">
+            上传 Excel 文件
+            <input id="militaryExcelInput" type="file" accept=".xlsx,.xls" />
+          </label>
+          <label class="span-2">
+            导入说明
+            <div class="small">支持两种 Excel 格式：1）按“上将 / 中将 / 少将”分段并整理为“姓名 / 落马时间 / 曾任职务 / 处理结果”；2）整理为“姓名 / 最后任职 / 军衔（上将/中将/少将）”。</div>
+          </label>
+          <label class="span-2">
+            上传截图图片
+            <input id="militaryScreenshotImageInput" type="file" accept="image/*" />
+          </label>
+          <label>
+            来源说明
+            <input id="militaryScreenshotSourceLabel" placeholder="如 中纪委官网截图 / 自行整理截图" value="解放军截图 OCR 导入" />
+          </label>
+          <label>
+            来源链接（可选）
+            <input id="militaryScreenshotSourceUrl" placeholder="可留空" />
+          </label>
+          <label class="span-2">
+            OCR 识别结果预览
+            <div id="militaryScreenshotPreview" class="ocr-preview">上传截图后，会按“姓名｜最后任职｜军衔”尝试自动识别并导入。</div>
+          </label>
+          <label class="span-2">
+            识别结果（可手动修改后导入）
+            <textarea id="militaryScreenshotImportText" rows="8" placeholder="每行一条：姓名｜最后任职｜军衔（上将/中将/少将）"></textarea>
+          </label>
+        </div>
+        <div class="control-actions">
+          <button id="militaryExcelImportButton" class="primary">导入解放军 Excel</button>
+          <button id="militaryScreenshotImportButton" class="secondary">上传截图并识别导入</button>
+          <button id="militaryScreenshotTextImportButton" class="ghost">按文本结果导入</button>
+        </div>
+      </section>
+
+      <section class="filters region-filters">
+        <label>
+          搜索
+          <input id="regionSearchInput" type="search" placeholder="姓名、职务、摘要" />
+        </label>
+        <label>
+          级别
+          <select id="regionLevelFilter"></select>
+        </label>
+      </section>
+
+      <section class="region-detail-shell">
+        <div class="region-detail-meta">
+          <div class="detail-stat">
+            <strong id="regionTotalCount">0</strong>
+            <span>当前条目</span>
+          </div>
+          <div class="detail-stat">
+            <strong id="regionUpdatedAt">未更新</strong>
+            <span>最近补全</span>
+          </div>
+        </div>
+
+        <main id="regionBoard" class="region-board"></main>
+      </section>
+    </div>
+
+    <dialog id="editorDialog" class="editor-dialog">
+      <form id="editorForm" class="editor-form" method="dialog">
+        <div class="dialog-header">
+          <h2>编辑条目</h2>
+          <button type="button" id="closeDialog" class="ghost">关闭</button>
+        </div>
+
+        <div class="form-grid">
+          <label>唯一 ID<input name="id" required /></label>
+          <label>姓名<input name="name" required /></label>
+          <label>出生年月<input name="birth" placeholder="如 1970-05" /></label>
+          <label>调查时间<input name="investigationDate" placeholder="YYYY-MM-DD" /></label>
+          <label>
+            地区
+            <select name="region" id="regionInput"></select>
+          </label>
+          <label>
+            级别
+            <select name="level" id="levelInput"></select>
+          </label>
+          <label class="span-2">最后职务<input name="lastPosition" /></label>
+          <label class="span-2">曾任职务（用 `|` 分隔）<input name="previousPositions" /></label>
+          <fieldset class="span-2 checkbox-group">
+            <legend>党内职务标注（可多选）</legend>
+            <label><input type="checkbox" name="centralRoles" value="中央政治局委员" />中央政治局委员</label>
+            <label><input type="checkbox" name="centralRoles" value="中央军委委员" />中央军委委员</label>
+            <label><input type="checkbox" name="centralRoles" value="中央书记处书记" />中央书记处书记</label>
+            <label><input type="checkbox" name="centralRoles" value="第十八届中纪委委员" />第十八届中纪委委员</label>
+            <label><input type="checkbox" name="centralRoles" value="第十九届中纪委委员" />第十九届中纪委委员</label>
+            <label><input type="checkbox" name="centralRoles" value="第二十届中纪委委员" />第二十届中纪委委员</label>
+            <label><input type="checkbox" name="centralRoles" value="第十八届中央委员" />第十八届中央委员</label>
+            <label><input type="checkbox" name="centralRoles" value="第十八届中央候补委员" />第十八届中央候补委员</label>
+            <label><input type="checkbox" name="centralRoles" value="第十九届中央委员" />第十九届中央委员</label>
+            <label><input type="checkbox" name="centralRoles" value="第十九届中央候补委员" />第十九届中央候补委员</label>
+            <label><input type="checkbox" name="centralRoles" value="第二十届中央委员" />第二十届中央委员</label>
+            <label><input type="checkbox" name="centralRoles" value="第二十届中央候补委员" />第二十届中央候补委员</label>
+          </fieldset>
+          <label>当前状态<input name="status" /></label>
+          <label>来源说明<input name="sourceLabel" placeholder="如 中纪委官网 / 百度百科" /></label>
+          <label class="span-2">来源链接<input name="sourceUrl" /></label>
+          <label class="span-2">手动照片链接<input name="photoUrl" placeholder="可填图片链接，或直接上传下方图片文件" /></label>
+          <label class="span-2">上传官员照片<input name="photoFile" type="file" accept="image/*" /></label>
+          <label class="span-2">摘要<textarea name="summary" rows="2"></textarea></label>
+          <label class="span-2">详情<textarea name="detail" rows="5"></textarea></label>
+          <label class="span-2">时间线（每行：日期|阶段|摘要|链接）<textarea name="timeline" rows="6"></textarea></label>
+        </div>
+
+        <div class="dialog-actions">
+          <button type="submit" class="primary">保存</button>
+          <button type="button" id="deleteButton" class="danger">删除</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="classificationDialog" class="editor-dialog">
+      <form id="classificationForm" class="editor-form editor-form-compact" method="dialog">
+        <div class="dialog-header">
+          <h2>修正地区与级别</h2>
+          <button type="button" id="closeClassificationDialog" class="ghost">关闭</button>
+        </div>
+
+        <div class="form-grid">
+          <label>唯一 ID<input name="id" readonly /></label>
+          <label>姓名<input name="name" readonly /></label>
+          <label>
+            所属地区
+            <select name="region" id="classificationRegionInput"></select>
+          </label>
+          <label>
+            官员级别
+            <select name="level" id="classificationLevelInput"></select>
+          </label>
+        </div>
+
+        <div class="dialog-actions">
+          <button type="submit" class="primary">保存归档修正</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="profileDialog" class="profile-dialog">
+      <div class="profile-sheet">
+        <div class="dialog-header">
+          <div>
+            <p class="eyebrow">人物档案</p>
+            <h2 id="profileName">官员姓名</h2>
+          </div>
+          <div class="profile-toolbar">
+            <button type="button" id="profileLockButton" class="secondary">锁定资料</button>
+            <button type="button" id="closeProfileDialog" class="ghost">关闭</button>
+          </div>
+        </div>
+
+        <div class="profile-grid">
+          <section class="profile-card profile-hero-card">
+            <div class="profile-hero">
+              <div class="profile-avatar" id="profileAvatar">档</div>
+              <div class="profile-hero-meta">
+                <div class="profile-badges" id="profileBadges"></div>
+                <div class="profile-facts" id="profileFacts"></div>
+              </div>
+            </div>
+            <div class="profile-outcome" id="profileOutcome"></div>
+            <p class="profile-summary" id="profileSummary"></p>
+          </section>
+
+          <section class="profile-card">
+            <h3>履历摘要</h3>
+            <div id="profilePositions" class="profile-list"></div>
+          </section>
+
+          <section class="profile-card">
+            <h3>处理进展</h3>
+            <div id="profileTimeline" class="profile-timeline"></div>
+          </section>
+
+          <section class="profile-card profile-card-wide">
+            <h3>案情与来源</h3>
+            <p id="profileDetail" class="profile-detail"></p>
+            <div id="profileSources" class="profile-sources"></div>
+          </section>
+        </div>
+      </div>
+    </dialog>
+
+    <script src="/region.js"></script>
+  </body>
+</html>
